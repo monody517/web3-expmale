@@ -1,4 +1,3 @@
-import React from 'react';
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 
@@ -17,7 +16,7 @@ const Header = () => {
     }
     return (
         <div style={headerStyle}>
-            <ConnectButton label="我是自定义按钮文字"></ConnectButton>
+            <ConnectButton />
         </div>
     )
 }

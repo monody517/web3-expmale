@@ -26,15 +26,15 @@ const Details = (props: any) => {
     console.log(data)
 
     return (
-        <div style={{display: 'flex',flexDirection: 'column'}}>
-            <h1>代币信息</h1>
+        <div style={{width: '100%',padding: '20px'}}>
+            <h1 style={{ paddingBottom: '10px'}}>代币信息</h1>
             {
                 data ?
-                    <div style={{display: 'flex',flexDirection: 'column'}}>
-                        <text>代币名称：{data[0]?.result}</text>
-                        <text>代币符号：{data[1]?.result}</text>
-                        <text>代币精度：{data[2]?.result}</text>
-                        <text>代币总量：{data[3]?.result}</text>
+                    <div style={{display: 'flex',flexDirection: 'column',width: '100%'}}>
+                        <text style={{width: '100%'}}>代币名称：{data[0]?.result}</text>
+                        <text style={{width: '100%'}}>代币符号：{data[1]?.result}</text>
+                        <text style={{width: '100%'}}>代币精度：{data[2]?.result}</text>
+                        <text style={{width: '100%'}}>代币总量：{data[3]?.result}</text>
                     </div>
                     : null
             }
