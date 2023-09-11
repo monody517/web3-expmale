@@ -1,14 +1,6 @@
-import React from 'react';
 import { abi } from '../../../../../data/MonToken.json'
 import { Counter } from '../../../../../data/contract-address.json'
-import {
-  usePrepareContractWrite,
-  useContractWrite,
-  useWaitForTransaction,
-  useContractRead,
-  useContractReads,
-  useContractEvent,
-} from "wagmi";
+import Details from '../components/details'
 
 const MonTokenInfo = () => {
 
@@ -19,20 +11,9 @@ const MonTokenInfo = () => {
 
     console.log(contract)
 
-    const { data, error, isError, isLoading } = useContractReads({
-        contracts: [
-        { 
-            ...contract,
-            functionName: "name",
-        },
-    ],
-    }) as any;
-    
-    console.log(data)
-
     return (
-        <div>
-            <h1></h1>
+        <div style={{display: 'flex',flexDirection: 'column'}}>
+            <Details contract={contract} />
         </div>
     )
 }
