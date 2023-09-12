@@ -34,7 +34,7 @@ const Details = (props: any) => {
                         <text style={{width: '100%'}}>代币名称：{data[0]?.result}</text>
                         <text style={{width: '100%'}}>代币符号：{data[1]?.result}</text>
                         <text style={{width: '100%'}}>代币精度：{data[2]?.result}</text>
-                        <text style={{width: '100%'}}>代币总量：{data[3]?.result}</text>
+                        <text style={{width: '100%'}}>代币总量：{data[3]?.result?.toString()}</text>
                     </div>
                     : null
             }

@@ -7,7 +7,7 @@ const BalanceOf = (props: any) => {
     const [address, setAddress] = useState('')
     
     const {
-        data,
+        data: balance,
         error,
         isError,
         isLoading,
@@ -21,8 +21,6 @@ const BalanceOf = (props: any) => {
         },
     ],
     })
-    console.log(data)
-    console.log(isLoading)
 
     return (
         <div style={{width: '100%',padding: '20px'}}>
@@ -34,6 +32,9 @@ const BalanceOf = (props: any) => {
                 onChange={(e) => { setAddress(e.target.value) }}
                 style={{width: '100%',height: '40px'}}
             />
+            {
+                balance && balance[0].status ? <text>{balance[0].result?.toString()}</text> : null
+            }
         </div>
     )
 }
