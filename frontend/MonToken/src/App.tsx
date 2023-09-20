@@ -8,7 +8,7 @@ function App() {
 
   const { chains, publicClient } = configureChains(
     [mainnet, polygon,goerli],
-    [alchemyProvider({ apiKey: 'yiAu-cBxM2sbEV07WsI_BnarQTxJ5yB1' })],
+    [alchemyProvider({ apiKey: 'ySoWudwOvxb9neHAr_do41X5iDRZjYLA' })],
   )
   
 const { connectors } = getDefaultWallets({
