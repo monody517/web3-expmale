@@ -1,6 +1,6 @@
 import { abi } from '../../../../../data/MonToken.json'
 import { FaucetAbi } from '../../../../../data/Faucet.json'
-import { Counter } from '../../../../../data/contract-address.json'
+import { Counter } from '../../../../../data/MonToken-contract-address.json'
 import { FaucetCounter } from '../../../../../data/Faucet-contract-address.json'
 import Details from '../components/details'
 import BalanceOf from '../components/BalanceOf'
