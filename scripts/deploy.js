@@ -15,6 +15,9 @@ async function main() {
       case 'Faucet':
         tokenName = 'Faucet';
         constructorParams = [MonTokenAddress, 10]
+      case 'Airdrop':
+        tokenName = 'Airdrop';
+        constructorParams = [MonTokenAddress]
     }
       // 获取合约文件
     const Token = await hre.ethers.getContractFactory(tokenName);

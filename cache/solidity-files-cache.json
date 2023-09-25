@@ -109,6 +109,43 @@
       "artifacts": [
         "Faucet"
       ]
+    },
+    "C:\\Users\\HP\\Desktop\\web3\\web3-expmale\\contracts\\Airdrop.sol": {
+      "lastModificationDate": 1695638451853,
+      "contentHash": "a649a48413e020700af274afc6ba2d32",
+      "sourceName": "contracts/Airdrop.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.4"
+      ],
+      "artifacts": [
+        "Airdrop"
+      ]
     }
   }
 }
