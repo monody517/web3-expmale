@@ -2,7 +2,7 @@
   "_format": "hh-sol-artifact-1",
   "contractName": "Airdrop",
   "sourceName": "contracts/Airdrop.sol",
-  "abi": [
+  "AirdropAbi": [
     {
       "inputs": [
         {

@@ -1,13 +1,17 @@
 import { abi } from '../../../../../data/MonToken.json'
 import { FaucetAbi } from '../../../../../data/Faucet.json'
+import { AirdropAbi } from '../../../../../data/Airdrop.json'
 import { Counter } from '../../../../../data/MonToken-contract-address.json'
 import { FaucetCounter } from '../../../../../data/Faucet-contract-address.json'
+import { AirdropCounter } from '../../../../../data/Airdrop-contract-address.json'
 import Details from '../components/details'
 import BalanceOf from '../components/BalanceOf'
 import Transfer from '../components/transfer'
 import TransferForm from '../components/transferForm'
 import Faucet from '../components/faucet'
 import Approve from './Approve'
+import Airdrop from './Airdrop'
+
 
 const MonTokenInfo = () => {
 
@@ -21,6 +25,11 @@ const MonTokenInfo = () => {
         abi: FaucetAbi,
     } as const
 
+    const AirdropContract = {
+        address: AirdropCounter,
+        abi: AirdropAbi,
+    } as const
+
     console.log('FaucetContract',FaucetContract)
 
     return (
@@ -31,6 +40,7 @@ const MonTokenInfo = () => {
             <Approve contract={MonTokenContract} />
             <TransferForm contract={MonTokenContract} />
             <Faucet contract={FaucetContract} />
+            <Airdrop contract={AirdropContract} />
         </div>
     )
 }
