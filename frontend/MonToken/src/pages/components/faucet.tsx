@@ -27,11 +27,6 @@ const Faucet = (props: any) => {
             setAmountEachTime(parseInt(res[0].result.toString()))
         }
     },[res])
-    
-    
-    const info = () => {
-        messageApi.info('领取成功');
-    };
 
       // 领币
     const { config: withdrawConfig, isError: isPrepareError } = usePrepareContractWrite({
@@ -46,17 +41,21 @@ const Faucet = (props: any) => {
         },
     });
 
-    const { write, data, isError: isWriteError } = useContractWrite(withdrawConfig);
-    
-    const { isLoading, isError: isWaitTransactionError } = useWaitForTransaction({
+    const { write, data, isError: isWriteError,isLoading: isWriteLoading } = useContractWrite(withdrawConfig);
+
+    const { isLoading: isTransactionLoading,isError: isWaitTransactionError } = useWaitForTransaction({
         hash: data?.hash,
-        onSuccess: () => {messageApi.success('领取成功')}});
+        onSuccess: () => { messageApi.success('领取成功') }
+    });
 
     return (
         <div style={{ width: '100%', padding: '20px' }}>
             {contextHolder}
             <h1 style={{ paddingBottom: '10px'}}>领取代币</h1>
-            <Button onClick={() => {
+            <Button
+                disabled={!write}
+                loading={isWriteLoading || isTransactionLoading}
+                onClick={() => {
                 console.log('111')
                 write?.()
             }}>领取</Button>

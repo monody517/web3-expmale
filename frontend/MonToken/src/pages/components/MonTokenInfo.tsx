@@ -5,7 +5,9 @@ import { FaucetCounter } from '../../../../../data/Faucet-contract-address.json'
 import Details from '../components/details'
 import BalanceOf from '../components/BalanceOf'
 import Transfer from '../components/transfer'
+import TransferForm from '../components/transferForm'
 import Faucet from '../components/faucet'
+import Approve from './Approve'
 
 const MonTokenInfo = () => {
 
@@ -26,6 +28,8 @@ const MonTokenInfo = () => {
             <Details contract={MonTokenContract} />
             <BalanceOf contract={MonTokenContract} />
             <Transfer contract={MonTokenContract} />
+            <Approve contract={MonTokenContract} />
+            <TransferForm contract={MonTokenContract} />
             <Faucet contract={FaucetContract} />
         </div>
     )

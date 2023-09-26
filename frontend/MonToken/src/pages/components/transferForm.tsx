@@ -2,10 +2,11 @@ import { Input,Button,message } from "antd"
 import { useState } from "react"
 import {usePrepareContractWrite,useContractWrite,useWaitForTransaction} from "wagmi";
 
-const Transfer = (props) => {
+const TransferForm = (props) => {
 
     const [messageApi, contextHolder] = message.useMessage();
-    const [address, setAddress] = useState('')
+    const [form, setForm] = useState('')
+    const [to ,setTo] = useState('')
     const [amount, setAmount] = useState(0)
 
     const success = () => {
@@ -13,13 +14,13 @@ const Transfer = (props) => {
         type: 'success',
         content: '转账成功',
         });
-  };
+    };
     
     const { config } = usePrepareContractWrite({
         ...props.contract,
-        functionName: "transfer",
-        args: [address, amount],
-        enabled: address !== "" && amount > 0,
+        functionName: "transferFrom",
+        args: [form, to, amount],
+        enabled: form !== "" && to !== "" && amount > 0,
         onError(error) {
             console.log('Error', error)
         },
@@ -47,12 +48,19 @@ const Transfer = (props) => {
     return (
         <div style={{ width: '100%', padding: '20px' }}>
             {contextHolder}
-            <h1 style={{ paddingBottom: '10px'}}>直接转账</h1>
+            <h1 style={{ paddingBottom: '10px' }}>通过授权账户转账</h1>
             <Input
-                placeholder="输入转账地址"
-                value={address}
+                placeholder="输入转出地址"
+                value={form}
                 allowClear
-                onChange={(e) => { setAddress(e.target.value) }}
+                onChange={(e) => { setForm(e.target.value) }}
+                style={{width: '100%',height: '40px'}}
+            />
+            <Input
+                placeholder="输入转入地址"
+                value={to}
+                allowClear
+                onChange={(e) => { setTo(e.target.value) }}
                 style={{width: '100%',height: '40px'}}
             />
             <Input
@@ -71,14 +79,8 @@ const Transfer = (props) => {
             >
                 转账
             </Button>
-
-            {isWriteError || isTransactionError ? (
-                <text>
-                {`转账失败，失败原因：${writeError || transactionError}`}
-                </text>
-            ) : null}
         </div>
     )
 }
 
-export default Transfer
+export default TransferForm
